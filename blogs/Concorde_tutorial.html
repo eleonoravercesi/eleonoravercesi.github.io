@@ -4,18 +4,18 @@
 <p>If you test this instruction to other machines, write me an email and I will update the tutorial.</p>
 <h2 id="cplex">CPLEX</h2>
 <ol style="list-style-type: decimal">
-<li><p>Register for the CPLEX Academic Initiative <a href="https://www.ibm.com/academic/home">here</a>. Use your institutional email.</p></li>
-<li><p>Note: if you tried to register with a new institutional email, and you were already registered with an old one, you may need to clear your broswer cache and cookies.</p></li>
-<li>Go <a href="https://www.ibm.com/academic/topic/data-science">here</a> anf click on &quot;Software&quot;, then choose &quot;IBM ILOG CPLEX Optimization Studio&quot;.</li>
-<li>Click to &quot;Download&quot;. It is possible that you have to click on it multiple times.</li>
+<li>Register for the CPLEX Academic Initiative <a href="https://www.ibm.com/academic/home">here</a>. Use your institutional email.</li>
+<li>Note: if you tried to register with a new institutional email, and you were already registered with an old one, you may need to clear your broswer cache and cookies.</li>
+<li>Go <a href="https://www.ibm.com/academic/topic/data-science">here</a> and click on &quot;Software&quot;, then choose &quot;IBM ILOG CPLEX Optimization Studio&quot;.</li>
+<li>Click to &quot;Download&quot;. It is possible that you have to click on it multiple times, otherwise you'll get an error.</li>
 <li>Search for &quot;IBM ILOG CPLEX Optimization Studio 12.9 for Linux x86-64 Multilingual&quot; (Image: CNZM2ML) and download it.</li>
 <li>Select it, scroll down, agree to the terms and conditions, and click &quot;Download&quot;.</li>
 <li>Select a directory where to save the files and complete the download.</li>
-<li><p>One the download is complete, go in the selected folder and run</p></li>
+<li>Once the download is complete, go in the selected folder and run</li>
 </ol>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">chmod</span> +x cplex_studio129.linux-x86-64.bin
 <span class="fu">sudo</span> ./cplex_studio129.linux-x86-64.bin</code></pre></div>
-<p>The <code>sudo</code> command is necessary to install the software in the default directory <code>/opt/ibm/ILOG/CPLEX_Studio129/</code> (which I recommend).</p>
+<p>The <code>sudo</code> command is necessary to install the software in the default directory <code>/opt/ibm/ILOG/CPLEX_Studio129/</code> (which I recommend). This tutorial assume that you have used this directory.</p>
 <ol start="9" style="list-style-type: decimal">
 <li>Follow the instructions and install the software. This part should be pretty straightforward and will be not commented further.</li>
 </ol>
@@ -37,12 +37,13 @@
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">cp</span> /opt/ibm/ILOG/CPLEX_Studio129/cplex/include/ilcplex/*h .
 <span class="fu">cp</span> /opt/ibm/ILOG/CPLEX_Studio129/cplex/lib/x86-64_linux/static_pic/libcplex.a .</code></pre></div>
 (This command assume that you have used the default installation directory for CPLEX)</li>
-<li><p>In the folder <code>buildcplex</code> run</p>
+<li>Create a folder called <code>build</code> in the folder <code>concorde</code>.</li>
+<li><p>In the folder <code>build</code> run</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">../configure</span> --prefix=/full/path/concorde/build/ --with-cplex=/full/path/concorde/cplex/</code></pre></div>
 It is important to use the full path for all the repositories.</li>
 <li><p>Run</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">make</span></code></pre></div></li>
-<li><p>It will fail, it's okay :) Now we have the file <code>concorde/build/concorde.h</code> to work on. In <code>concorde.h</code> use find and replace to change all <code>*new)</code> to <code>*NEW)</code> and all <code>*class)</code> to <code>*CLASS)</code></p></li>
+<li><p>It will fail, it's okay :) Now we have the file <code>concorde/build/concorde.h</code> to work on. In <code>concorde.h</code> use &quot;find and replace&quot; of any text editor to change all <code>*new)</code> to <code>*NEW)</code> and all <code>*class)</code> to <code>*CLASS)</code></p></li>
 <li><p>In <code>concorde/LP/lpcplex8.c</code> replace</p>
 <div class="sourceCode"><pre class="sourceCode c"><code class="sourceCode c"><span class="pp">#undef  CC_CPLEX_DISPLAY</span></code></pre></div>
 <p>With</p>
