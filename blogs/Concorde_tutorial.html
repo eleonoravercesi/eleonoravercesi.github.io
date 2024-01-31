@@ -1,5 +1,18 @@
-<h1 id="compile-tutorial-with-cplex">Compile tutorial with CPLEX</h1>
-<p>This tutorial will guide you through the process of compiling the code with CPLEX and Concorde. It merges together information from the <a href="https://mertbakir.gitlab.io/operations-research/how-to-install-cplex-ibm-academic-initiative/">here</a> and <a href="https://www.leandro-coelho.com/install-and-run-concorde-with-cplex/">here</a>, applyng minor changes. ## CPLEX 1. Register for the CPLEX Academic Initiative <a href="https://www.ibm.com/academic/home">here</a>. Use your institutional email. 2. Note: if you tried to register with a new institutional email, and you were already registered with an old one, you may need to clear your broswer cache and cookies. 3. Go <a href="https://www.ibm.com/academic/topic/data-science">here</a> anf click on &quot;Software&quot;, then choose &quot;IBM ILOG CPLEX Optimization Studio&quot;. 4. Click to &quot;Download&quot;. It is possible that you have to click on it multiple times. 5. Search for &quot;IBM ILOG CPLEX Optimization Studio 12.9 for Linux x86-64 Multilingual&quot; (Image: CNZM2ML) and download it. 6. Select it, scroll down, agree to the terms and conditions, and click &quot;Download&quot;. 7. Select a directory where to save the files and complete the download. 8. One the download is complete, go in the selected folder and run</p>
+<h1 id="install-concorde-with-cplex">Install Concorde with CPLEX</h1>
+<p>This tutorial will guide you through the process of building together CPLEX and Concorde. It merges together information from the <a href="https://mertbakir.gitlab.io/operations-research/how-to-install-cplex-ibm-academic-initiative/">here</a> and <a href="https://www.leandro-coelho.com/install-and-run-concorde-with-cplex/">here</a>, applyng minor changes.</p>
+<p>Tested on the following system: - Ubuntu 20.04.2 LTS</p>
+<p>If you test this instruction to other machines, write me an email and I will update the tutorial.</p>
+<h2 id="cplex">CPLEX</h2>
+<ol style="list-style-type: decimal">
+<li><p>Register for the CPLEX Academic Initiative <a href="https://www.ibm.com/academic/home">here</a>. Use your institutional email.</p></li>
+<li><p>Note: if you tried to register with a new institutional email, and you were already registered with an old one, you may need to clear your broswer cache and cookies.</p></li>
+<li>Go <a href="https://www.ibm.com/academic/topic/data-science">here</a> anf click on &quot;Software&quot;, then choose &quot;IBM ILOG CPLEX Optimization Studio&quot;.</li>
+<li>Click to &quot;Download&quot;. It is possible that you have to click on it multiple times.</li>
+<li>Search for &quot;IBM ILOG CPLEX Optimization Studio 12.9 for Linux x86-64 Multilingual&quot; (Image: CNZM2ML) and download it.</li>
+<li>Select it, scroll down, agree to the terms and conditions, and click &quot;Download&quot;.</li>
+<li>Select a directory where to save the files and complete the download.</li>
+<li><p>One the download is complete, go in the selected folder and run</p></li>
+</ol>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">chmod</span> +x cplex_studio129.linux-x86-64.bin
 <span class="fu">sudo</span> ./cplex_studio129.linux-x86-64.bin</code></pre></div>
 <p>The <code>sudo</code> command is necessary to install the software in the default directory <code>/opt/ibm/ILOG/CPLEX_Studio129/</code> (which I recommend).</p>
