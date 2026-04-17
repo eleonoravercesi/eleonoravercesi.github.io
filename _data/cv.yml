@@ -1,0 +1,33 @@
+- title: General Information
+  type: map
+  contents:
+    - name: Full Name
+      value: Eleonora Vercesi
+    - name: Date of Birth
+      value: 1st January 1995
+    - name: Languages
+      value: English, Italian <em>native</em>, German, Spanish <em>A1</em>
+
+- title: Experience
+  type: time_table
+  contents:
+    - title: PostDoc
+      institution: Università della Svizzera Italiana, "Dalle Molle" Institute of Artificial Intelligence (Switzerland)
+      year: Oct 2023 - present
+    - title: Internship
+      institution: SATALIA (UK)
+      year: Feb 2019 - Jun 2019
+
+
+- title: Education
+  type: time_table
+  contents:
+    - title: (Joint) PhD in Computational Mathematics and Decision Sciences
+      institution: University of Pavia & Università della Svizzera Italiana
+      year: Oct 2023
+    - title: MSc in Applied Mathematics
+      institution: University of Pavia
+      year: Jun 2020
+    - title: BSc
+      institution: University of Pavia
+      year: Nov 2017
