@@ -7,8 +7,21 @@ nav: true
 nav_order: 5
 ---
 
+
 #### Tutorials
-In progress...
+
+<div class="list-group">
+  <a href="{{ '/blog/2026/installing-concorde-cplex/' | relative_url }}" class="list-group-item list-group-item-action flex-column align-items-start">
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1">Install Concorde with CPLEX</h5>
+      <small>April 2026</small>
+    </div>
+    <p class="mb-1">A step-by-step guide to building the Concorde TSP solver with IBM ILOG CPLEX on Ubuntu 20.04.</p>
+  </a>
+</div>
+
+<p></p>
+<p></p>
 
 #### GitHub Repositories
 

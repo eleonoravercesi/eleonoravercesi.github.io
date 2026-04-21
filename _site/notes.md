@@ -25,3 +25,6 @@ children:
 ---
 
 Credits for this file: Martin Bulla
+
+# What I have added instead:
+- Do you want to add a tutorial? Go in `_page/repositories.md`

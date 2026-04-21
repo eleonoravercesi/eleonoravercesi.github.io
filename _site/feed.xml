@@ -1,5 +1,64 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2026-04-21T15:10:14+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">blank</title><subtitle>A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design and adapted from Marti Bulla website.
-</subtitle><entry><title type="html">Displaying External Posts on Your al-folio Blog</title><link href="http://localhost:4000/blog/2022/displaying-external-posts-on-your-al-folio-blog/" rel="alternate" type="text/html" title="Displaying External Posts on Your al-folio Blog" /><published>2022-04-24T01:20:09+02:00</published><updated>2022-04-24T01:20:09+02:00</updated><id>http://localhost:4000/blog/2022/displaying-external-posts-on-your-al-folio-blog</id><content type="html" xml:base="http://localhost:4000/blog/2022/displaying-external-posts-on-your-al-folio-blog/"><![CDATA[]]></content><author><name></name></author></entry><entry><title type="html">a post with redirect</title><link href="http://localhost:4000/blog/2021/redirect/" rel="alternate" type="text/html" title="a post with redirect" /><published>2021-07-04T19:39:00+02:00</published><updated>2021-07-04T19:39:00+02:00</updated><id>http://localhost:4000/blog/2021/redirect</id><content type="html" xml:base="http://localhost:4000/blog/2021/redirect/"><![CDATA[]]></content><author><name></name></author><summary type="html"><![CDATA[you can also redirect to assets like pdf]]></summary></entry><entry><title type="html">a post with diagrams</title><link href="http://localhost:4000/blog/2021/diagrams/" rel="alternate" type="text/html" title="a post with diagrams" /><published>2021-07-04T19:39:00+02:00</published><updated>2021-07-04T19:39:00+02:00</updated><id>http://localhost:4000/blog/2021/diagrams</id><content type="html" xml:base="http://localhost:4000/blog/2021/diagrams/"><![CDATA[<p>This theme supports generating various diagrams from a text description using <a href="https://github.com/zhustec/jekyll-diagrams" target="\_blank">jekyll-diagrams</a> plugin.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2026-04-21T16:40:36+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">blank</title><subtitle>A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design and adapted from Marti Bulla website.
+</subtitle><entry><title type="html">Installing Concorde with CPLEX</title><link href="http://localhost:4000/blog/2026/installing-concorde-cplex/" rel="alternate" type="text/html" title="Installing Concorde with CPLEX" /><published>2026-04-21T12:00:00+02:00</published><updated>2026-04-21T12:00:00+02:00</updated><id>http://localhost:4000/blog/2026/installing-concorde-cplex</id><content type="html" xml:base="http://localhost:4000/blog/2026/installing-concorde-cplex/"><![CDATA[<h1 id="install-concorde-with-cplex">Install Concorde with CPLEX</h1>
+<p>This tutorial will guide you through the process of building together CPLEX and Concorde. It merges together information from the <a href="https://mertbakir.gitlab.io/operations-research/how-to-install-cplex-ibm-academic-initiative/">here</a> and <a href="https://www.leandro-coelho.com/install-and-run-concorde-with-cplex/">here</a>, applyng minor changes.</p>
+<p>Tested on the following system: - Ubuntu 20.04.2 LTS</p>
+<p>If you test this instruction to other machines, write me an email and I will update the tutorial.</p>
+<h2 id="cplex">CPLEX</h2>
+<ol style="list-style-type: decimal">
+<li>Register for the CPLEX Academic Initiative <a href="https://www.ibm.com/academic/home">here</a>. Use your institutional email.</li>
+<li>Note: if you tried to register with a new institutional email, and you were already registered with an old one, you may need to clear your broswer cache and cookies.</li>
+<li>Go <a href="https://www.ibm.com/academic/topic/data-science">here</a> and click on &quot;Software&quot;, then choose &quot;IBM ILOG CPLEX Optimization Studio&quot;.</li>
+<li>Click to &quot;Download&quot;. It is possible that you have to click on it multiple times, otherwise you'll get an error.</li>
+<li>Search for &quot;IBM ILOG CPLEX Optimization Studio 12.9 for Linux x86-64 Multilingual&quot; (Image: CNZM2ML) and download it.</li>
+<li>Select it, scroll down, agree to the terms and conditions, and click &quot;Download&quot;.</li>
+<li>Select a directory where to save the files and complete the download.</li>
+<li>Once the download is complete, go in the selected folder and run</li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">chmod</span> +x cplex_studio129.linux-x86-64.bin
+<span class="fu">sudo</span> ./cplex_studio129.linux-x86-64.bin</code></pre></div>
+<p>The <code>sudo</code> command is necessary to install the software in the default directory <code>/opt/ibm/ILOG/CPLEX_Studio129/</code> (which I recommend). This tutorial assume that you have used this directory.</p>
+<ol start="9" style="list-style-type: decimal">
+<li>Follow the instructions and install the software. This part should be pretty straightforward and will be not commented further.</li>
+</ol>
+<h2 id="concorde">Concorde</h2>
+<ol style="list-style-type: decimal">
+<li>Download Concorde from the <a href="https://www.math.uwaterloo.ca/tsp/concorde/downloads/downloads.htm">Concorde website</a> or by directly clicking <a href="https://www.math.uwaterloo.ca/tsp/concorde/downloads/codes/src/co031219.tgz">here</a>.</li>
+<li><p>Extrct the files</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">gunzip</span> co031219.tgz
+<span class="fu">tar</span> xvf co031219.tar</code></pre></div></li>
+<li><p>In the file <code>concorde/Makefile.in</code> change the line</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">LIBFLAGS</span> = @LIBS@</code></pre></div>
+<p>into</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">LIBFLAGS</span> = @LIBS@ -lpthread</code></pre></div></li>
+<li><p>In the file <code>concorde/TSP/Makefile.in</code> change the line</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">LIBFLAGS</span> = @LIBS@</code></pre></div>
+<p>into</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">LIBFLAGS</span> = @LIBS@ -lpthread -ldl</code></pre></div></li>
+<li><p>Create a folder called <code>./concorde/cplex</code> and copy in it the following files</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">cp</span> /opt/ibm/ILOG/CPLEX_Studio129/cplex/include/ilcplex/*h .
+<span class="fu">cp</span> /opt/ibm/ILOG/CPLEX_Studio129/cplex/lib/x86-64_linux/static_pic/libcplex.a .</code></pre></div>
+(This command assume that you have used the default installation directory for CPLEX)</li>
+<li>Create a folder called <code>build</code> in the folder <code>concorde</code>.</li>
+<li><p>In the folder <code>build</code> run</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">../configure</span> --prefix=/full/path/concorde/build/ --with-cplex=/full/path/concorde/cplex/</code></pre></div>
+It is important to use the full path for all the repositories.</li>
+<li><p>Run</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">make</span></code></pre></div></li>
+<li><p>It will fail, it's okay :) Now we have the file <code>concorde/build/concorde.h</code> to work on. In <code>concorde.h</code> use &quot;find and replace&quot; of any text editor to change all <code>*new)</code> to <code>*NEW)</code> and all <code>*class)</code> to <code>*CLASS)</code></p></li>
+<li><p>In <code>concorde/LP/lpcplex8.c</code> replace</p>
+<div class="sourceCode"><pre class="sourceCode c"><code class="sourceCode c"><span class="pp">#undef  CC_CPLEX_DISPLAY</span></code></pre></div>
+<p>With</p>
+<div class="sourceCode"><pre class="sourceCode c"><code class="sourceCode c"><span class="pp">#undef  CC_CPLEX_DISPLAY</span>
+<span class="pp">#ifndef CPX_PARAM_FASTMIP</span>
+<span class="pp">#define CPX_PARAM_FASTMIP 1017</span>
+<span class="pp">#endif</span></code></pre></div></li>
+<li><p>In <code>concorde/build/</code>, rename <code>concorde.a</code> to <code>libconcorde.a</code></p></li>
+<li><p>In the folder <code>build</code> run again</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">make</span></code></pre></div></li>
+<li><p>In the folder <code>build</code> run</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">./TSP/concorde</span></code></pre></div>
+<p>This should work, printing the help message of Concorde.</p></li>
+</ol>]]></content><author><name></name></author><category term="research-tools" /><category term="tutorials" /><category term="optimization" /><category term="tsp" /><summary type="html"><![CDATA[A step-by-step guide to building Concorde with IBM ILOG CPLEX on Ubuntu.]]></summary></entry><entry><title type="html">Displaying External Posts on Your al-folio Blog</title><link href="http://localhost:4000/blog/2022/displaying-external-posts-on-your-al-folio-blog/" rel="alternate" type="text/html" title="Displaying External Posts on Your al-folio Blog" /><published>2022-04-24T01:20:09+02:00</published><updated>2022-04-24T01:20:09+02:00</updated><id>http://localhost:4000/blog/2022/displaying-external-posts-on-your-al-folio-blog</id><content type="html" xml:base="http://localhost:4000/blog/2022/displaying-external-posts-on-your-al-folio-blog/"><![CDATA[]]></content><author><name></name></author></entry><entry><title type="html">a post with redirect</title><link href="http://localhost:4000/blog/2021/redirect/" rel="alternate" type="text/html" title="a post with redirect" /><published>2021-07-04T19:39:00+02:00</published><updated>2021-07-04T19:39:00+02:00</updated><id>http://localhost:4000/blog/2021/redirect</id><content type="html" xml:base="http://localhost:4000/blog/2021/redirect/"><![CDATA[]]></content><author><name></name></author><summary type="html"><![CDATA[you can also redirect to assets like pdf]]></summary></entry><entry><title type="html">a post with diagrams</title><link href="http://localhost:4000/blog/2021/diagrams/" rel="alternate" type="text/html" title="a post with diagrams" /><published>2021-07-04T19:39:00+02:00</published><updated>2021-07-04T19:39:00+02:00</updated><id>http://localhost:4000/blog/2021/diagrams</id><content type="html" xml:base="http://localhost:4000/blog/2021/diagrams/"><![CDATA[<p>This theme supports generating various diagrams from a text description using <a href="https://github.com/zhustec/jekyll-diagrams" target="\_blank">jekyll-diagrams</a> plugin.
 Below, we generate a few examples of such diagrams using languages such as <a href="https://mermaid-js.github.io/mermaid/" target="\_blank">mermaid</a>, <a href="https://plantuml.com/" target="\_blank">plantuml</a>, <a href="https://vega.github.io/vega-lite/" target="\_blank">vega-lite</a>, etc.</p>
 
 <p><strong>Note:</strong> different diagram-generation packages require external dependencies to be installed on your machine.
@@ -380,147 +439,4 @@ Produces something like this:</p>
 
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</pre></td></tr></tbody></table></code></pre></figure>]]></content><author><name></name></author><category term="sample-posts" /><category term="formatting" /><category term="code" /><summary type="html"><![CDATA[an example of a blog post with some code]]></summary></entry><entry><title type="html">a post with images</title><link href="http://localhost:4000/blog/2015/images/" rel="alternate" type="text/html" title="a post with images" /><published>2015-05-15T23:01:00+02:00</published><updated>2015-05-15T23:01:00+02:00</updated><id>http://localhost:4000/blog/2015/images</id><content type="html" xml:base="http://localhost:4000/blog/2015/images/"><![CDATA[<p>This is an example post with image galleries.</p>
-
-<div class="row mt-3">
-    <div class="col-sm mt-3 mt-md-0">
-        <figure>
-
-  <picture>
-    
-    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/9-480.webp" />
-    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/9-800.webp" />
-    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/9-1400.webp" />
-    
-
-    <!-- Fallback to the original file -->
-    <img src="/assets/img/9.jpg" class="img-fluid rounded z-depth-1" width="auto" height="auto" onerror="this.onerror=null; $('.responsive-img-srcset').remove();" />
-
-  </picture>
-
-</figure>
-
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        <figure>
-
-  <picture>
-    
-    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/7-480.webp" />
-    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/7-800.webp" />
-    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/7-1400.webp" />
-    
-
-    <!-- Fallback to the original file -->
-    <img src="/assets/img/7.jpg" class="img-fluid rounded z-depth-1" width="auto" height="auto" onerror="this.onerror=null; $('.responsive-img-srcset').remove();" />
-
-  </picture>
-
-</figure>
-
-    </div>
-</div>
-<div class="caption">
-    A simple, elegant caption looks good between image rows, after each row, or doesn't have to be there at all.
-</div>
-
-<p>Images can be made zoomable.
-Simply add <code class="language-plaintext highlighter-rouge">data-zoomable</code> to <code class="language-plaintext highlighter-rouge">&lt;img&gt;</code> tags that you want to make zoomable.</p>
-
-<div class="row mt-3">
-    <div class="col-sm mt-3 mt-md-0">
-        <figure>
-
-  <picture>
-    
-    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/8-480.webp" />
-    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/8-800.webp" />
-    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/8-1400.webp" />
-    
-
-    <!-- Fallback to the original file -->
-    <img src="/assets/img/8.jpg" class="img-fluid rounded z-depth-1" width="auto" height="auto" data-zoomable="" onerror="this.onerror=null; $('.responsive-img-srcset').remove();" />
-
-  </picture>
-
-</figure>
-
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        <figure>
-
-  <picture>
-    
-    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/10-480.webp" />
-    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/10-800.webp" />
-    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/10-1400.webp" />
-    
-
-    <!-- Fallback to the original file -->
-    <img src="/assets/img/10.jpg" class="img-fluid rounded z-depth-1" width="auto" height="auto" data-zoomable="" onerror="this.onerror=null; $('.responsive-img-srcset').remove();" />
-
-  </picture>
-
-</figure>
-
-    </div>
-</div>
-
-<p>The rest of the images in this post are all zoomable, arranged into different mini-galleries.</p>
-
-<div class="row mt-3">
-    <div class="col-sm mt-3 mt-md-0">
-        <figure>
-
-  <picture>
-    
-    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/11-480.webp" />
-    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/11-800.webp" />
-    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/11-1400.webp" />
-    
-
-    <!-- Fallback to the original file -->
-    <img src="/assets/img/11.jpg" class="img-fluid rounded z-depth-1" width="auto" height="auto" data-zoomable="" onerror="this.onerror=null; $('.responsive-img-srcset').remove();" />
-
-  </picture>
-
-</figure>
-
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        <figure>
-
-  <picture>
-    
-    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/12-480.webp" />
-    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/12-800.webp" />
-    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/12-1400.webp" />
-    
-
-    <!-- Fallback to the original file -->
-    <img src="/assets/img/12.jpg" class="img-fluid rounded z-depth-1" width="auto" height="auto" data-zoomable="" onerror="this.onerror=null; $('.responsive-img-srcset').remove();" />
-
-  </picture>
-
-</figure>
-
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        <figure>
-
-  <picture>
-    
-    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/7-480.webp" />
-    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/7-800.webp" />
-    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/7-1400.webp" />
-    
-
-    <!-- Fallback to the original file -->
-    <img src="/assets/img/7.jpg" class="img-fluid rounded z-depth-1" width="auto" height="auto" data-zoomable="" onerror="this.onerror=null; $('.responsive-img-srcset').remove();" />
-
-  </picture>
-
-</figure>
-
-    </div>
-</div>]]></content><author><name></name></author><category term="sample-posts" /><category term="formatting" /><category term="images" /><summary type="html"><![CDATA[this is what included images could look like]]></summary></entry></feed>
+</pre></td></tr></tbody></table></code></pre></figure>]]></content><author><name></name></author><category term="sample-posts" /><category term="formatting" /><category term="code" /><summary type="html"><![CDATA[an example of a blog post with some code]]></summary></entry></feed>
