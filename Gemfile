@@ -1,7 +1,10 @@
 source 'https://rubygems.org'
-gem 'jekyll-sass-converter', '~> 2.2'
+
+# Declare the version once here
+gem "jekyll", "~> 4.4"
+
 group :jekyll_plugins do
-    gem 'jekyll'
+    # Do NOT list 'jekyll' here again
     gem 'jekyll-archives'
     gem 'jekyll-diagrams'
     gem 'jekyll-email-protect'
@@ -18,6 +21,7 @@ group :jekyll_plugins do
     gem 'unicode_utils'
     gem 'webrick'
 end
+
 group :other_plugins do
     gem 'httparty'
     gem 'feedjira'
