@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <!-- Head -->
+  <head>    <!-- Metadata, OpenGraph and Schema.org -->
+    
+    <!-- Website verification -->
+    <meta name="google-site-verification" content="" /><meta name="msvalidate.01" content="" />
+
+    <!-- Standard metadata -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Installing Concorde with CPLEX | Eleonora  Vercesi</title>
+    <meta name="author" content="Eleonora  Vercesi" />
+    <meta name="description" content="A step-by-step guide to building Concorde with IBM ILOG CPLEX on Ubuntu." />
+
+
+    <!-- Bootstrap & MDB -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-DF7Zhf293AJxJNTmh5zhoYYIMs2oXitRfBjY+9L//AY=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdbootstrap@4.20.0/css/mdb.min.css" integrity="sha256-jpjYvU3G3N6nrrBwXJoVEYI/0zw8htfFnhT9ljN3JJw=" crossorigin="anonymous" />
+
+    <!-- Fonts & Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.1/css/academicons.min.css" integrity="sha256-i1+4qU2G2860dGGIOJscdC30s9beBXjFfzjWLjBRsBg=" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons">
+
+    <!-- Code Syntax Highlighting -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jwarby/jekyll-pygments-themes@master/github.css" media="none" id="highlight_theme_light" />
+
+    <!-- Styles -->
+    
+    <link rel="shortcut icon" href="/assets/img/star.png"/>
+    
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="canonical" href="http://localhost:4000/blog/2026/installing-concorde-cplex/">
+    
+    <!-- Dark Mode -->
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jwarby/jekyll-pygments-themes@master/native.css" media="none" id="highlight_theme_dark" />
+
+    <script src="/assets/js/theme.js"></script>
+    <script src="/assets/js/dark_mode.js"></script>
+    
+
+  </head>
+
+  <!-- Body -->
+  <body class="fixed-top-nav ">
+
+    <!-- Header -->
+    <header>
+
+      <!-- Nav Bar -->
+      <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top">
+        <div class="container">
+          <a class="navbar-brand title font-weight-lighter" href="/"><span class="font-weight-bold">Eleonora </span>Vercesi</a>
+          <!-- Navbar Toggle -->
+          <button class="navbar-toggler collapsed ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar top-bar"></span>
+            <span class="icon-bar middle-bar"></span>
+            <span class="icon-bar bottom-bar"></span>
+          </button>
+
+          <div class="collapse navbar-collapse text-right" id="navbarNav">
+            <ul class="navbar-nav ml-auto flex-nowrap">
+
+              <!-- About -->
+              <li class="nav-item ">
+                <a class="nav-link" href="/">About</a>
+              </li>
+              
+
+              <!-- Other pages -->
+              <li class="nav-item ">
+                <a class="nav-link" href="/cv/">CV</a>
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link" href="/news/">News</a>
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link" href="/publications/">Papers</a>
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link" href="/projects/">Ongoing Projects</a>
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link" href="/repos/">Blog</a>
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link" href="/teaching/">Teaching</a>
+              </li>
+
+              <!-- Toogle theme mode -->
+              <li class="toggle-container">
+                <button id="light-toggle" title="Change theme">
+                  <i class="fas fa-moon"></i>
+                  <i class="fas fa-sun"></i>
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Content -->
+    <div class="container mt-5">
+      <!-- _layouts/post.html -->
+
+<div class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">Installing Concorde with CPLEX</h1>
+    <p class="post-meta">April 21, 2026</p>
+    <p class="post-tags">
+      <a href="/blog/2026"> <i class="fas fa-calendar fa-sm"></i> 2026 </a>
+        ·  
+        <a href="/blog/tag/tutorials">
+          <i class="fas fa-hashtag fa-sm"></i> tutorials</a>  
+          <a href="/blog/tag/optimization">
+          <i class="fas fa-hashtag fa-sm"></i> optimization</a>  
+          <a href="/blog/tag/tsp">
+          <i class="fas fa-hashtag fa-sm"></i> tsp</a>  
+          
+        ·  
+        <a href="/blog/category/research-tools">
+          <i class="fas fa-tag fa-sm"></i> research-tools</a>  
+          
+
+    </p>
+  </header>
+
+  <article class="post-content">
+    <h1 id="install-concorde-with-cplex">Install Concorde with CPLEX</h1>
+<p>This tutorial will guide you through the process of building together CPLEX and Concorde. It merges together information from the <a href="https://mertbakir.gitlab.io/operations-research/how-to-install-cplex-ibm-academic-initiative/" target="_blank" rel="noopener noreferrer">here</a> and <a href="https://www.leandro-coelho.com/install-and-run-concorde-with-cplex/" target="_blank" rel="noopener noreferrer">here</a>, applyng minor changes.</p>
+<p>Tested on the following system: - Ubuntu 20.04.2 LTS</p>
+<p>If you test this instruction to other machines, write me an email and I will update the tutorial.</p>
+<h2 id="cplex">CPLEX</h2>
+<ol style="list-style-type: decimal">
+<li>Register for the CPLEX Academic Initiative <a href="https://www.ibm.com/academic/home" target="_blank" rel="noopener noreferrer">here</a>. Use your institutional email.</li>
+<li>Note: if you tried to register with a new institutional email, and you were already registered with an old one, you may need to clear your broswer cache and cookies.</li>
+<li>Go <a href="https://www.ibm.com/academic/topic/data-science" target="_blank" rel="noopener noreferrer">here</a> and click on "Software", then choose "IBM ILOG CPLEX Optimization Studio".</li>
+<li>Click to "Download". It is possible that you have to click on it multiple times, otherwise you'll get an error.</li>
+<li>Search for "IBM ILOG CPLEX Optimization Studio 12.9 for Linux x86-64 Multilingual" (Image: CNZM2ML) and download it.</li>
+<li>Select it, scroll down, agree to the terms and conditions, and click "Download".</li>
+<li>Select a directory where to save the files and complete the download.</li>
+<li>Once the download is complete, go in the selected folder and run</li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">chmod</span> +x cplex_studio129.linux-x86-64.bin
+<span class="fu">sudo</span> ./cplex_studio129.linux-x86-64.bin</code></pre></div>
+<p>The <code>sudo</code> command is necessary to install the software in the default directory <code>/opt/ibm/ILOG/CPLEX_Studio129/</code> (which I recommend). This tutorial assume that you have used this directory.</p>
+<ol start="9" style="list-style-type: decimal">
+<li>Follow the instructions and install the software. This part should be pretty straightforward and will be not commented further.</li>
+</ol>
+<h2 id="concorde">Concorde</h2>
+<ol style="list-style-type: decimal">
+<li>Download Concorde from the <a href="https://www.math.uwaterloo.ca/tsp/concorde/downloads/downloads.htm" target="_blank" rel="noopener noreferrer">Concorde website</a> or by directly clicking <a href="https://www.math.uwaterloo.ca/tsp/concorde/downloads/codes/src/co031219.tgz" target="_blank" rel="noopener noreferrer">here</a>.</li>
+<li>
+<p>Extrct the files</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">gunzip</span> co031219.tgz
+<span class="fu">tar</span> xvf co031219.tar</code></pre></div>
+</li>
+<li>
+<p>In the file <code>concorde/Makefile.in</code> change the line</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">LIBFLAGS</span> = @LIBS@</code></pre></div>
+<p>into</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">LIBFLAGS</span> = @LIBS@ -lpthread</code></pre></div>
+</li>
+<li>
+<p>In the file <code>concorde/TSP/Makefile.in</code> change the line</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">LIBFLAGS</span> = @LIBS@</code></pre></div>
+<p>into</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">LIBFLAGS</span> = @LIBS@ -lpthread -ldl</code></pre></div>
+</li>
+<li>
+<p>Create a folder called <code>./concorde/cplex</code> and copy in it the following files</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">cp</span> /opt/ibm/ILOG/CPLEX_Studio129/cplex/include/ilcplex/*h .
+<span class="fu">cp</span> /opt/ibm/ILOG/CPLEX_Studio129/cplex/lib/x86-64_linux/static_pic/libcplex.a .</code></pre></div>
+(This command assume that you have used the default installation directory for CPLEX)</li>
+<li>Create a folder called <code>build</code> in the folder <code>concorde</code>.</li>
+<li>
+<p>In the folder <code>build</code> run</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">../configure</span> --prefix=/full/path/concorde/build/ --with-cplex=/full/path/concorde/cplex/</code></pre></div>
+It is important to use the full path for all the repositories.</li>
+<li>
+<p>Run</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">make</span></code></pre></div>
+</li>
+<li><p>It will fail, it's okay :) Now we have the file <code>concorde/build/concorde.h</code> to work on. In <code>concorde.h</code> use "find and replace" of any text editor to change all <code>*new)</code> to <code>*NEW)</code> and all <code>*class)</code> to <code>*CLASS)</code></p></li>
+<li>
+<p>In <code>concorde/LP/lpcplex8.c</code> replace</p>
+<div class="sourceCode"><pre class="sourceCode c"><code class="sourceCode c"><span class="pp">#undef  CC_CPLEX_DISPLAY</span></code></pre></div>
+<p>With</p>
+<div class="sourceCode"><pre class="sourceCode c"><code class="sourceCode c"><span class="pp">#undef  CC_CPLEX_DISPLAY</span>
+<span class="pp">#ifndef CPX_PARAM_FASTMIP</span>
+<span class="pp">#define CPX_PARAM_FASTMIP 1017</span>
+<span class="pp">#endif</span></code></pre></div>
+</li>
+<li><p>In <code>concorde/build/</code>, rename <code>concorde.a</code> to <code>libconcorde.a</code></p></li>
+<li>
+<p>In the folder <code>build</code> run again</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">make</span></code></pre></div>
+</li>
+<li>
+<p>In the folder <code>build</code> run</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">./TSP/concorde</span></code></pre></div>
+<p>This should work, printing the help message of Concorde.</p>
+</li>
+</ol>
+
+  </article>
+
+</div>
+
+    </div>
+
+    <!-- Footer -->    
+    <footer class="fixed-bottom">
+      <div class="container mt-0">
+        © Copyright 2026 Eleonora  Vercesi. Powered by <a href="https://jekyllrb.com/" target="_blank" rel="noopener noreferrer">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio" target="_blank" rel="noopener noreferrer">al-folio</a> theme. Hosted by <a href="https://pages.github.com/" target="_blank" rel="noopener noreferrer">GitHub Pages</a>.
+Last updated: June 16, 2026.
+      </div>
+    </footer>
+
+    <!-- JavaScripts -->
+    <!-- jQuery -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <!-- Bootsrap & MDB scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha256-fgLAgv7fyCGopR/gBNq2iW3ZKIdqIcyshnUULC4vex8=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.20.0/js/mdb.min.js" integrity="sha256-NdbiivsvWt7VYCt6hYNT3h/th9vSTL4EDWeGs5SN3DA=" crossorigin="anonymous"></script>
+
+    <!-- Masonry & imagesLoaded -->
+  <script defer src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI=" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+  <script defer src="/assets/js/masonry.js" type="text/javascript"></script>
+    
+  <!-- Enable Tooltips -->
+  <script type="text/javascript">
+  $(function () {$('[data-toggle="tooltip"]').tooltip()})
+  </script>
+  <!-- Medium Zoom JS -->
+  <script defer src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.6/dist/medium-zoom.min.js" integrity="sha256-EdPgYcPk/IIrw7FYeuJQexva49pVRZNmt3LculEr7zM=" crossorigin="anonymous"></script>
+  <script defer src="/assets/js/zoom.js"></script><!-- Load Common JS -->
+  <script defer src="/assets/js/common.js"></script>
+
+    <!-- MathJax -->
+  <script type="text/javascript">
+    window.MathJax = {
+      tex: {
+        tags: 'ams'
+      }
+    };
+  </script>
+  <script defer type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id="></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ window.dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', '');
+  </script>
+  </body>
+</html>
