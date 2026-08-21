@@ -1,15 +1,15 @@
 ---
 layout: page
-title: Integrality gap of the GraphTSP
-description: joint work with T. Villa e M. Mastrolilli
+title: Instance space analysis for the metric TSP
+description: joint work with M. Mastrolilli
 img: 
 redirect: 
 importance: 3
 category: 
 ---
 
-In this project, we aim to advance the current knowledge of the 
-integrality gap of the GraphTSP. 
-
-To do so, we start from a more general observation 
-and we are now in the process of adapt it to a specific case
+We are studying the practical performance of exact and heuristic algorithms for the Symmetric Traveling Salesman 
+Problem (TSP) using Instance Space Analysis. The project focuses on comparing Concorde and LKH-3 across a diverse set 
+of TSP instances, from easy to challenging cases. By analyzing solution quality over time and the time required to
+reach different optimality gaps, we aim to identify regions of the instance space where one algorithm performs better 
+than the other. The final goal is to provide practical guidance on when to use an exact solver or a heuristic approach.
