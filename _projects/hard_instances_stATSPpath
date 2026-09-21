@@ -1,0 +1,12 @@
+---
+layout: page
+title: Hard instances for the s-t k-Path ATSP
+description: joint work with M. Christalla & T. Villa
+img:
+redirect:
+importance: 3
+category:
+---
+
+We are studying the properties shared by worst-case instances of the various algorithms for the s-t k-Path ATSP, with
+the goal of designing better algorithms.

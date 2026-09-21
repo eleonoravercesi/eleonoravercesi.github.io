@@ -117,10 +117,33 @@
           </header>
 
           <article>
-            <!-- pages/projects.md -->
+            <style>
+  .project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 16px;
+    align-items: stretch;      /* all cards in a row get the same height */
+  }
+  .project-grid > .grid-sizer {
+    display: none !important;  /* Masonry helper, not needed in a CSS grid */
+  }
+  .project-grid > .grid-item {
+    width: auto !important;    /* drop the theme's fixed width */
+    position: static !important;
+    float: none !important;
+    margin: 0 !important;
+  }
+  .project-grid > .grid-item > a,
+  .project-grid .card {
+    display: block;
+    height: 100%;
+  }
+</style>
+
+<!-- pages/projects.md -->
 <div class="projects">
 <!-- Display projects without categories --><!-- Generate cards for each project -->
-  <div class="grid">
+<div class="project-grid">
 <!-- _includes/projects.html -->
 <div class="grid-sizer"></div>
 <div class="grid-item">
@@ -129,6 +152,34 @@
         <div class="card-body">
           <h2 class="card-title">Solving the Traveling Salesman Problem via Subtour Elimination Constraints predictions</h2>
           <p class="card-text"></p>
+          <div class="row ml-1 mr-1 p-0">
+          </div>
+        </div>
+      </div>
+    </a>
+</div>
+<!-- _includes/projects.html -->
+<div class="grid-sizer"></div>
+<div class="grid-item">
+  <a href="/projects/exp_constr/">
+      <div class="card hoverable">
+        <div class="card-body">
+          <h2 class="card-title">Truly hard instances for the Traveling Salesman Problem</h2>
+          <p class="card-text">joint work with A. Buchanan</p>
+          <div class="row ml-1 mr-1 p-0">
+          </div>
+        </div>
+      </div>
+    </a>
+</div>
+<!-- _includes/projects.html -->
+<div class="grid-sizer"></div>
+<div class="grid-item">
+  <a href="/projects/hard_instances_stATSPpath/">
+      <div class="card hoverable">
+        <div class="card-body">
+          <h2 class="card-title">Hard instances for the s-t k-Path ATSP</h2>
+          <p class="card-text">joint work with M. Christalla &amp; T. Villa</p>
           <div class="row ml-1 mr-1 p-0">
           </div>
         </div>
@@ -162,7 +213,7 @@
     <footer class="fixed-bottom">
       <div class="container mt-0">
         © Copyright 2026 Eleonora  Vercesi. Powered by <a href="https://jekyllrb.com/" target="_blank" rel="noopener noreferrer">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio" target="_blank" rel="noopener noreferrer">al-folio</a> theme. Hosted by <a href="https://pages.github.com/" target="_blank" rel="noopener noreferrer">GitHub Pages</a>.
-Last updated: August 21, 2026.
+Last updated: September 21, 2026.
       </div>
     </footer>
 

@@ -108,9 +108,14 @@
     {%- endif -%}
 
     {%- capture periodical -%}{{ entrytype }}{{ entrymonth }}{{ entryyear }}{%- endcapture -%}
+
     <div class="periodical">
       {{ periodical | strip }}
     </div>
+
+    {%- if entry.type == "misc" and entry.note %}
+    <div class="jounal">{{ entry.note }}</div>
+    {%- endif %}
     {%- endif %}
 
     <div class="links">
